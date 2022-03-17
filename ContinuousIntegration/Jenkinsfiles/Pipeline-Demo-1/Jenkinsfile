@@ -3,23 +3,96 @@ pipeline{
         label "Main"
     }
     stages{
-        stage("A"){
+      
+        stage("Build Application"){
             steps{
-                echo "========executing A========"
+                echo "========Building Application========"
             }
             post{
                 always{
                     echo "========always========"
                 }
                 success{
-                    echo "========A executed successfully========"
+                    echo "========Build executed successfully========"
                 }
                 failure{
-                    echo "========A execution failed========"
+                    echo "========Build execution failed========"
                 }
             }
         }
+
+        stage("Run Unit Tests"){
+            steps{
+                echo "========executing Unit Tests========"
+            }
+            post{
+                always{
+                    echo "========always========"
+                }
+                success{
+                    echo "========Unit Tests executed successfully========"
+                }
+                failure{
+                    echo "========Unit Test execution failed========"
+                }
+            }
+        }
+
+
+        stage("Deploy Application"){
+            steps{
+                echo "========Deploying application to QA environment for validation========"
+            }
+            post{
+                always{
+                    echo "========always========"
+                }
+                success{
+                    echo "========Deployed successfully========"
+                }
+                failure{
+                    echo "========Deployment execution failed========"
+                }
+            }
+        }
+
+        stage("Run Automated Tests"){
+            steps{
+                echo "========executing Automated Tests========"
+            }
+            post{
+                always{
+                    echo "========always========"
+                }
+                success{
+                    echo "========Test Automation executed successfully========"
+                }
+                failure{
+                    echo "========Test Automation execution failed========"
+                }
+            }
+        }
+
+        stage("Run Load Tests"){
+            steps{
+                echo "========executing Load Tests========"
+            }
+            post{
+                always{
+                    echo "========always========"
+                }
+                success{
+                    echo "========Load Tests executed successfully========"
+                }
+                failure{
+                    echo "========Load Test execution failed========"
+                }
+            }
+        }
+
+
     }
+
     post{
         always{
             echo "========always========"

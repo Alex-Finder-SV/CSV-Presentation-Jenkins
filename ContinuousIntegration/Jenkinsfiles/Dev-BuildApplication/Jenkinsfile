@@ -3,10 +3,9 @@ pipeline{
         label "Main"
     }
     stages{
-      
         stage("Build Application"){
             steps{
-                echo "========Building Application========"
+                echo "========Building App========"
             }
             post{
                 always{
@@ -20,8 +19,7 @@ pipeline{
                 }
             }
         }
-
-
+    }
     post{
         always{
             echo "========always========"
@@ -31,7 +29,6 @@ pipeline{
         }
         failure{
             echo "========pipeline execution failed========"
-            }
         }
     }
 }

@@ -3,25 +3,23 @@ pipeline{
         label "Main"
     }
     stages{
-      
-        stage("Deploy Application"){
+        stage("Deploy App"){
             steps{
-                echo "========Deploying Application========"
+                echo "========Deploying App========"
             }
             post{
                 always{
                     echo "========always========"
                 }
                 success{
-                    echo "========Deployment executed successfully========"
+                    echo "========Deployed successfully========"
                 }
                 failure{
                     echo "========Deployment failed========"
                 }
             }
         }
-
-
+    }
     post{
         always{
             echo "========always========"

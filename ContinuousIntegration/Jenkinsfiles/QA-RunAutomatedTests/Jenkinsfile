@@ -3,25 +3,23 @@ pipeline{
         label "Main"
     }
     stages{
-      
-        stage("QA Automated Tests"){
+        stage("QA Automation"){
             steps{
-                echo "========Running Automated Tests========"
+                echo "========executing Automated Tests========"
             }
             post{
                 always{
                     echo "========always========"
                 }
                 success{
-                    echo "========Test Automation executed successfully========"
+                    echo "========Automation executed successfully========"
                 }
                 failure{
-                    echo "========Test Automation failed========"
+                    echo "========Automation execution failed========"
                 }
             }
         }
-
-
+    }
     post{
         always{
             echo "========always========"

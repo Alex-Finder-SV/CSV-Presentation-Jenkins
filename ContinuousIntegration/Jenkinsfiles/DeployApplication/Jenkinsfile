@@ -3,19 +3,19 @@ pipeline{
         label "Main"
     }
     stages{
-        stage("QA Load Tests"){
+        stage("Deploy Application"){
             steps{
-                echo "========executing Load Tests========"
+                echo "========Deploying App========"
             }
             post{
                 always{
                     echo "========always========"
                 }
                 success{
-                    echo "========Load Tests executed successfully========"
+                    echo "========Deployment executed successfully========"
                 }
                 failure{
-                    echo "========Load Tests execution failed========"
+                    echo "========Deployment execution failed========"
                 }
             }
         }

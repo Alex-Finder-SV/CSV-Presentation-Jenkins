@@ -1,0 +1,36 @@
+pipeline{
+    agent{
+        label "Main"
+    }
+    stages{
+      
+        stage("QA Performance Tests"){
+            steps{
+                echo "========Running Load Tests========"
+            }
+            post{
+                always{
+                    echo "========always========"
+                }
+                success{
+                    echo "========Load Tests executed successfully========"
+                }
+                failure{
+                    echo "========Load Tests failed========"
+                }
+            }
+        }
+
+
+    post{
+        always{
+            echo "========always========"
+        }
+        success{
+            echo "========pipeline executed successfully ========"
+        }
+        failure{
+            echo "========pipeline execution failed========"
+        }
+    }
+}

@@ -1,0 +1,36 @@
+pipeline{
+    agent{
+        label "Main"
+    }
+    stages{
+      
+        stage("Deploy Application"){
+            steps{
+                echo "========Deploying Application========"
+            }
+            post{
+                always{
+                    echo "========always========"
+                }
+                success{
+                    echo "========Deployment executed successfully========"
+                }
+                failure{
+                    echo "========Deployment failed========"
+                }
+            }
+        }
+
+
+    post{
+        always{
+            echo "========always========"
+        }
+        success{
+            echo "========pipeline executed successfully ========"
+        }
+        failure{
+            echo "========pipeline execution failed========"
+        }
+    }
+}

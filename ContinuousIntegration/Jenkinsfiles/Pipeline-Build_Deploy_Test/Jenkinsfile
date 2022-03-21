@@ -1,0 +1,37 @@
+pipeline{
+    agent{
+        label "Main"
+    }
+    stages{
+      
+        stage("Build Application"){
+            steps{
+                build(job:"Dev-BuildApplication")
+            }
+        }
+
+        stage("Deploy Application"){
+            steps{
+                build(job:"Dev-DeployApplication")
+            }
+        }
+
+        stage("Run Automated Tests"){
+            steps{
+                build(job:"QA-RunAutomatedTests")
+            }
+        }
+    }
+
+    post{
+        always{
+            echo "========always========"
+        }
+        success{
+            echo "========pipeline executed successfully ========"
+        }
+        failure{
+            echo "========pipeline execution failed========"
+        }
+    }
+}
